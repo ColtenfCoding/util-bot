@@ -34,10 +34,7 @@ class Random(commands.Cog):
         except Exception as e:
             await ctx.send('Failed to set you as AFK: ```{}```'.format(e))
 
-    @commands.command()
-    async def source(self, ctx):
-        """Gets the source code for this bot on GitHub."""
-        await ctx.send('Utilities#2289 source code: <https://github.com/acatiadroid/util-bot>')
+    
 
     @commands.command()
     async def addbot(self, ctx, *, content: commands.clean_content):
@@ -57,10 +54,10 @@ class Random(commands.Cog):
         await ch.send(embed=embed)
 
     @commands.command()
-    @commands.has_role('Admin')
+    @commands.has_role('឵឵👑 MAIN BOTS👑')
     async def acceptbot(self, ctx, botname: str, member: discord.Member):
         await member.send(
-            f'👍 Your bot **{botname}** was added to ISgood community by {ctx.author.mention}.\n\nYour bot has access to <#808139553797308426>, <#808140224659062834>, the Music voice channels and a few other hidden channels. It also only has basic permissions, such as `Read Messages` and `Send Messages`. Check `?tag addbotrules` to make sure your bot doesn\'t get removed.')
+            f'👍 Your bot **{botname}** was added to Captain bot by {ctx.author.mention}.\n\nyourbot only gets a few channels. , the Music voice channels and a few other hidden channels. It also only has basic permissions, such as `Read Messages` and `Send Messages`. Check `?tag addbotrules` to make sure your bot doesn\'t get removed.')
         await ctx.send('Done.')
 
     @commands.group(invoke_without_command=True)
@@ -176,8 +173,8 @@ class Random(commands.Cog):
 
         if not member.bot:
             return
-        muterole = member.guild.get_role(797534434354135040)
-        logchannel = member.guild.get_channel(800806829264470017)
+        muterole = member.guild.get_role(754040678740132028)
+        logchannel = member.guild.get_channel(845746834491179068)
         roles = [808136380647080027, 808129797905186857, 808129440327794699, 808129441573896203, 808129645261881344]
         mutedata = await self.bot.stickymute.find(member.id)
 
@@ -196,7 +193,7 @@ class Random(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
-        muterole = member.guild.get_role(797534434354135040)
+        muterole = member.guild.get_role(754040678740132028)
         if muterole in member.roles:
             await self.bot.stickymute.upsert({"_id": member.id})
 
